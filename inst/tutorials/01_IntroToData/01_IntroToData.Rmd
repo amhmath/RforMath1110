@@ -293,6 +293,17 @@ learnrhash::encoder_ui(
   ui_after = shiny::tags$a(href = "https://learn.snhu.edu", "BrightSpace")
 )
 ```
+  
+  ## Submit2
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui()
+```
+  
 
 ## Summary
 
