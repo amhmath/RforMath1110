@@ -47,13 +47,13 @@ In addition to the resources mentioned here, there are several other great resou
 
 ### 
 
-If you have any questions/comments or wish to report any errors in these workbooks, please email [Adam Gilbert (*a.gilbert1@snhu.edu*)](mailto:a.gilbert1@snhu.edu). These workbooks are publicly available on [GitHub](https://github.com/agmath/AppliedStatsInteractive) and are available to run locally via an R package as follows:
+If you have any questions/comments or wish to report any errors in these workbooks, please email [A.M. Heissan (*a.heissan@mville.edu*)](mailto:a.heissan@mville.edu). These workbooks are publicly available on [GitHub](https://github.com/amhmath/AppliedStatsInteractive) and are available to run locally via an R package as follows:
 
 ```{r install, echo = TRUE, eval = FALSE}
 #You'll need the devtools library to install a package from GitHub
 install.packages("devtools")
 #Now, install the package containing the interactive workbooks
-remotes::install_github("agmath/AppliedStatsInteractive")
+remotes::install_github("amhmath/AppliedStatsInteractive")
 ```
 
 ###
