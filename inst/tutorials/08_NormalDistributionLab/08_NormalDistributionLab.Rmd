@@ -288,7 +288,6 @@ Compute the empirical probability that a randomly chosen young adult female weig
 
 Notice that your probability estimated using the normal distribution is only half of what the empirical probability is. Since the assumption of approximate normality was far from satisfied with the distribution of weights, the probabilities we estimate from an assumed normal distribution connot be trusted as true approximations for probabilities associated with these weights. If we are to use the normal model then we must be sure that the assumption of approximate normality is satisfied!
 
-###
 
 ## Submit
 
