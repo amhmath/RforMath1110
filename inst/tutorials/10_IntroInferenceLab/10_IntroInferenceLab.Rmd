@@ -690,7 +690,6 @@ Run the code above multiple times. Do your results change? What do the red highl
 
 Good work through this activity. I hope it has made the Central Limit Theorem and Sampling Distributions a bit more intuitive to you. We'll do more with confidence intervals in the second half of our course. If you are interested in doing more, go back through this workbook using the `price` data.
 
-###
 
 ## Submit
 
@@ -703,10 +702,10 @@ learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
     "solutions, please click the button below to generate your hash and",
-    "enter it next to your name on this week's Google Sheet.",
+    "enter it on this week's Google Form in Blackboard.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://docs.google.com/spreadsheets/d/1dclD2jApFem6pFInWIz2zUNZIgoUAJVlhDlyY8PUTmY/edit?usp=sharing", "Google Sheet")
+  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
 )
 ``` 
 
