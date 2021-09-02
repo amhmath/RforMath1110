@@ -13,16 +13,16 @@ I've updated the package to include functionality from Colin Rundel's `learnrhas
 Once the package has been installed you can run the individual notebooks by navigating to the `Tutorials` tab in RStudio's top-right pane. You'll just need to click the *Start Tutorial?* button to render and work through the corresponding interactive notebook. If you get an error stating that `learnrhash` must be installed, you can install it manually using `remotes::install_github("rundel/learnrhash")` -- R will report an error saying that `learnrhash` is not available for your version of R if you allow R to try installing the package on its own. If you prefer to run the tutorials from a web browser rather than RStudio's Tutorials pane, you can access the tutorials using commands of the following structure: `learnr::run_tutorial(NOTEBOOK_NAME, package = "AppliedStatsInteractive")`
 
 The available notebooks are as follows:
-+ 0_StartHere
-+ 1_IntroToData
-+ 2_IntroToR
-+ 3_DescriptiveNumCat
-+ 4_DataViz
-+ 5_DiscreteDistributions
-+ 6_NormalDistribution
-+ 7_DiscreteDistributionsLab
-+ 8_NormalDistributionLab
-+ 9_FoundationsForInference
++ 00_StartHere
++ 01_IntroToData
++ 02_IntroToR
++ 03_DescriptiveNumCat
++ 04_DataViz
++ 05_DiscreteDistributions
++ 06_NormalDistribution
++ 07_DiscreteDistributionsLab
++ 08_NormalDistributionLab
++ 09_FoundationsForInference
 + 10_IntroInferenceLab
 + 11_HTandCIprop
 + 12_InferencePractice
@@ -34,7 +34,7 @@ The available notebooks are as follows:
 + 18_ANOVA
 + 19_LinearRegression
 
-The notebook named 4_DataViz is an adaptation of the data visualization chapter from Hadley Wickham and Garrett Grolemund's [R for Data Science](https://r4ds.had.co.nz/).
+The notebook named 04_DataViz is an adaptation of the data visualization chapter from Hadley Wickham and Garrett Grolemund's [R for Data Science](https://r4ds.had.co.nz/).
 
 ## A Note on Rendering Workbooks
 
