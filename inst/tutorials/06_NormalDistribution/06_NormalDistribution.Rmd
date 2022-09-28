@@ -105,7 +105,7 @@ ggplot(NULL, aes(c(-3, 3))) +
 
 ###
 
-+ The distribution is symmetric. In symbols, $\mathb{P}\left[X\leq \mu - k\right] = \mathbb{P}\left[X \geq \mu + k\right]$ for any $k$.
++ The distribution is symmetric. In symbols, $\mathbb{P}\left[X\leq \mu - k\right] = \mathbb{P}\left[X \geq \mu + k\right]$ for any $k$.
 
 <center>
 ```{r shade-norm-symmetric, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 3, fig.height = 3}
