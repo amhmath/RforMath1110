@@ -75,11 +75,11 @@ The following are some recommended [basic] plots types under certain scenarios:
 ```{r need-for-spread, echo = FALSE}
 question_checkbox(
   "Which of the following plot types would have been a better choice to display the engine brand and fuel type data?",
-  answer("A histogram"),
+  answer("A histogram",message="A histogram requires at least one numerical variable."),
   answer("A barplot with fill color", correct = TRUE),
   answer("A heatmap", correct = TRUE),
-  answer("A dotplot"),
-  answer("Side-by-side boxplots"),
+  answer("A scatterplot",message="A scatterplot  uses numerical data."),
+  answer("Side-by-side boxplots", message="A boxplots requires at least one numerical variable."),
   allow_retry = TRUE
 )
 ```
@@ -108,46 +108,48 @@ Notice that when you execute a line of code which just calls the name of a data 
 
 ###
 
-**Some Basic Exploratory Functions:** It is useful to know more about your dataset when you first start working with data. R has a few exploratory functions which you should know about: `names(mpg)` prints out a list of names of your data frame's columns, `head(mpg)` will show you the first six rows of the `mpg` dataset, `dim(mpg)` will show you the number of rows and columns in the dataset, and `glimpse(mpg)` will show you information about how R is treating the columns (`int` and `num` denote numerical values while `chr` and `fct` represent character strings and categorical variables respectively). Use the code block below to try each of these functions and use the output to answer the following questions:
+**Some Basic Exploratory Functions:** It is useful to know more about your dataset when you first start working with data. R has a few exploratory functions which you should know about: `names(mpg)` prints out a list of names of your data frame's columns, `head(mpg)` will show you the first six rows of the `mpg` dataset, `head(mpg,n)` will show you the first $n$ rows of the `mpg` dataset, `dim(mpg)` will show you the number of rows and columns in the dataset, and `glimpse(mpg)` will show you information about how R is treating the columns -- `<int>` and `<num>` denote numerical values while `<chr>` and `<fct>` represent character strings and categorical variables respectively. (Note, `glimpse(head(mpg,0))` gives you no data, but the output is a *cleaner* list of the variable information.) Use the code block below to try each of these functions and use the output to answer the questions that follow.
+
 
 ```{r explore-mpg-dataframe, exercise = TRUE}
 
 ```
 
+
 ```{r mpg-basic-description, echo = FALSE}
 quiz(
   question_radio(
     "How many variables are contained in the mpg dataset?",
-    answer("1"),
+    answer("1", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
     answer("11", correct = TRUE),
-    answer("234"),
-    answer("245"),
-    answer("2574"),
+    answer("234", message="This is the number of rows -- you want the numer of columns in the dataset."),
+    answer("245", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
+    answer("2574", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
     allow_retry = TRUE
   ),
   
   question_radio(
     "How many observations (records) are contained in the mpg dataset?",
-    answer("1"),
-    answer("11"),
+    answer("1", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
+    answer("11", message="This is the number of columns -- you want the numer of rows in the dataset."),
     answer("234", correct = TRUE),
-    answer("245"),
-    answer("2574"),
+    answer("245", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
+    answer("2574", message="Remember, `dim(mpg)` will show you the number of rows and columns in the dataset."),
     allow_retry = TRUE
   ),
   
   question_checkbox(
-    "Which of the variables is R interpreting as numerical?",
-    answer("manufacturer"),
-    answer("model"),
+    "Which of the variables is R interpreting as numerical? Hint: use `glimpse(head(mpg,0))`",
+    answer("manufacturer", message="manufacturer is not numerical."),
+    answer("model", message="model is not numerical."),
     answer("displ", correct = TRUE),
     answer("cyl", correct = TRUE),
-    answer("trans"),
-    answer("drv"),
+    answer("trans", message="trans is not numerical."),
+    answer("drv", message="drv is not numerical."),
     answer("cty", correct = TRUE),
     answer("hwy", correct = TRUE),
-    answer("fl"),
-    answer("class"),
+    answer("fl", message="fl is not numerical."),
+    answer("class", message="class is not numerical."),
     allow_retry = TRUE
   )
 )
@@ -161,7 +163,14 @@ The `diamonds` data frame is also available to you. See if you can get your basi
 
 ```
 
+```{r explore-diamonds-solution}
+dim(diamonds)
+glimpse(head(diamonds,0))
+```
+
 Were you able to obtain the information you were looking for? Be sure to ask a question if not!
+
+Note that `<ord>` indicates ordered categorical variables, and `<dbl>` indicates numerical variables with two decimal places.
 
 ## Building and interpreting plots
 
@@ -178,7 +187,7 @@ quiz(
     "Which of the following is true?",
     answer("Highway miles per gallon and engine displacement are independent"),
     answer("Highway miles per gallon and engine displacement are associated", correct = TRUE),
-    answer("It is impossible to tell whenther the variables are associated or independent"),
+    answer("It is impossible to tell whether the variables are associated or independent"),
     answer("Highway miles per gallon and engine displacement are both independent and associated", message = "pairs of variables are either independent (share no relationship) or are associated (share some general relationship)"),
     allow_retry = TRUE
   ),
@@ -235,6 +244,10 @@ Now make a scatterplot of average highway miles per gallon (`hwy`) exlained by n
 ```{r plot-hwy-cyl, exercise = TRUE}
 
 ```
+```{r plot-hwy-cyl-solution}
+ggplot(data = mpg) + geom_point(mapping = aes(x = cyl, y = hwy, group = cyl))
+```
+
 
 ###
 
@@ -269,13 +282,13 @@ quiz(
   
   question_checkbox(
     "Which of the following plot types would be appropriate for building a visual with the class and drive type variables?",
-    answer("A histogram"),
-    answer("A side-by-side boxplot"),
+    answer("A histogram", message="A histogram requires at least one numerical variable."),
+    answer("A side-by-side boxplot", message="A boxplot requires at least one numerical variable."),
     answer("A bar graph with fill color", correct = TRUE),
     answer("A heatmap", correct = TRUE),
     answer("A mosaicplot", correct = TRUE),
     allow_retry = TRUE,
-    random_answer_order = TRUE
+    random_answer_order = FALSE
   )
 )
 ```
@@ -346,25 +359,28 @@ question_radio(
 
 ## Categorical Variables
 
-We've seen plots for categorical variables earlier in this workbook. Let's revisit a barplot with fill, similar to the one we constructed between `class` and `drv` earlier and check two alternative plots which give different insights. We'll explore the transmission variable (I've stored a more usable version of the `trans` variable as `trans2`) and the drive variable (`drv`).
+We've seen plots for categorical variables earlier in this workbook. Let's revisit a barplot with fill, similar to the one we constructed between `class` and `drv` earlier and check two alternative plots which give different insights. We'll explore the transmission and drive variables.
+
+The following code stores a more usable version of the `trans` variable as `trans2`. It removes the last 5 characters in the label, leaving just "auto" or "manual".  For example, "auto (14)" becomes "auto".
 
 ```{r engineer-trans2, echo = TRUE, eval = TRUE}
-mpg_with_trans <- mpg
-mpg_with_trans$trans2 <- str_sub(mpg_with_trans$trans, 1, -5)
+mpg$trans2 <- str_sub(mpg$trans, 1, -5)
 ```
 
-We'll switch to using the `mpg_with_trans` data frame for the rest of this notebook.
+We'll use this for the next exercise.
 
 ###
 
 From the plot below we can tell that there are about twice as many vehicles in our dataset with automatic transmissions as there are with manual transmissions. The problem is that it is difficult to compare the proportions of drive types within each of these classes. We can fix this by using the position argument. Outside of `aes()` but still within `mapping()` add an argument `position = "fill"` to the pre-built plot -- you'll need to include a comma after `aes()` since commas separate arguments. Think about what is gained and lost in this new plot.
 
 ```{r trans-drv-plot, exercise = TRUE, exercise.eval = TRUE}
-ggplot(data = mpg_with_trans) + geom_bar(mapping = aes(x = trans2, fill = drv))
+mpg$trans2 <- str_sub(mpg$trans, 1, -5)
+ggplot(data = mpg) + geom_bar(mapping = aes(x = trans2, fill = drv))
 ```
 
 ```{r trans-drv-plot-solution}
-ggplot(data = mpg_with_trans) + geom_bar(mapping = aes(x = trans2, fill = drv), position = "fill")
+mpg$trans2 <- str_sub(mpg$trans, 1, -5)
+ggplot(data = mpg) + geom_bar(mapping = aes(x = trans2, fill = drv), position = "fill")
 ```
 
 ```{r trans-drv-plot-check}
@@ -376,7 +392,7 @@ grade_code()
 Great! But the problem now is that we've lost the idea that there are more automatic vehicles than there are manual vehicles in this dataset. As a third option, we can consider a mosaic plot.
 
 ```{r echo = TRUE, eval = TRUE}
-mosaicplot(mpg_with_trans$trans2 ~ mpg_with_trans$drv, main = "Transmission and Drive Types")
+mosaicplot(mpg$trans2 ~ mpg$drv, main = "Transmission and Drive Types",xlab="trans",ylab="drive")
 ```
 
 The advantage to the mosaic plot is that it contains all of the information from the two separate plots above, but it is all combined into one plot! We've built a visualization that manages to convey that the proportion of manual vehicles in our dataset outweighs the proportion of automatics, and we can also compare the distribution of drive types within each of these two classes. Notice, however, that the syntax for the mosaic plot is not like the `ggplot()` syntax we've been experimenting with throughout this workbook.

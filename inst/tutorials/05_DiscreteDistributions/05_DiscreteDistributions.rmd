@@ -14,6 +14,7 @@ runtime: shiny_prerendered
 #knitr::opts_chunk$set(eval = FALSE)
 library(dplyr)
 library(ggplot2)
+library(stringr)
 library(learnr)
 library(gradethis)
 
@@ -122,6 +123,10 @@ Use the code block below to compute the probability that in a single roll of a f
 
 ```
 
+```{r pAandB-solution}
+(5/6)*(1/2)
+```
+
 ```{r pAandB-check}
 grade_result(
   pass_if(~ identical(.result, (5/6)*(1/2)))
@@ -130,7 +135,9 @@ grade_result(
 
 ###
 
-Good work so far. Let's say you forgot to study for your chemistry quiz today. It is a four question multiple choice quiz with options $a)$ - $e)$. You decide that your best option is to guess randomly on each of the questions. Answer the following, using the empty code block below to carry out any necessary computations.
+Good work so far! 
+
+Let's say you forgot to study for your kinesiology quiz today. It is a four-question, multiple choice quiz, where each question has five options:  $\{a,b,c,d,e\}$. You decide that your best option is to guess randomly on each of the questions. Answer the following questions, using the empty code block below to carry out any necessary computations.
 
 ```{r calc-box, exercise = TRUE}
 
@@ -173,7 +180,7 @@ quiz(
     allow_retry = TRUE
   ),
   question_radio(
-    "What is the probability that the first one you get wrong is question three?",
+    "What is the probability that the first question you get wrong is question three?",
     answer("0"),
     answer("0.015"),
     answer("0.032", correct = TRUE),
@@ -184,12 +191,11 @@ quiz(
   ),
   question_radio(
     "What is the probability that you get exactly two questions right?",
-    answer("0.04"),
-    answer("0.08"),
+    answer("0.04", message = "Hmmm, I believe you got here by MULIPLYING .2 * .2. What about the other two questions?"),
     answer("0.256", message = "You assumed something here -- what was it?"),
-    answer("0.2"),
-    answer("0.4"),
-    answer("0.64", message = "Hmmm, what about the other two questions?"),
+    answer("0.2", message = "This is the probability that, for a single question, you get it correct."),
+    answer("0.4", message = "Did you mistakenly ADD .2 + .2? This is not how we calculate the probability of independent events."),
+    answer("0.64", message = "Hmmm, I believe you got here by MULIPLYING .8 * .8. What about the other two questions?"),
     answer("None of these", correct = TRUE),
     allow_retry = TRUE
   )
@@ -223,10 +229,14 @@ In the equations above, $\binom{n}{k} = \frac{n!}{k!\left(n-k\right)!}$ counts t
 
 ###
 
-The code block below is set up to find the probability of exactly two flips of a coin landing heads-up out of seven total flips. Edit the code block that that it finds the probability that you got exactly two of the four questions on your chemistry quiz from earlier correct. As a reminder, there were five answer options for each question and you were guessing randomly.
+The code block below is set up to find the probability of exactly two flips of a coin landing heads-up out of seven total flips. Edit the code block so that it finds the probability that you got exactly two of the four questions on your kinesiology quiz from earlier correct. As a reminder, there were five answer options for each question and you were guessing randomly.
 
 ```{r chem-quiz-binom, exercise = TRUE, exercise.eval = TRUE}
 dbinom(2, 7, 0.5)
+```
+
+```{r chem-quiz-binom-solution}
+dbinom(2,4,.2)
 ```
 
 ```{r chem-quiz-binom-check}
@@ -246,6 +256,10 @@ Good work. Now you'll get to try a few more problems! As you work through the ne
 
 ```
 
+```{r binom-assignments-ex1-solution}
+0.34
+```
+
 ```{r binom-assignments-ex1-check}
 grade_result(
   pass_if(~ identical(.result, 0.34))
@@ -255,6 +269,10 @@ grade_result(
 2. Find the probability that exactly 7 of the 18 students have failed to hand in at least one assignment.
 ```{r binom-assignments-ex2, exercise = TRUE}
 
+```
+
+```{r binom-assignments-ex2-solution}
+dbinom(7, 18, 0.34)
 ```
 
 ```{r binom-assignments-ex2-check}
@@ -268,6 +286,10 @@ grade_result(
 
 ```
 
+```{r binom-assignments-ex3-solution}
+pbinom(9, 18, 0.34)
+```
+
 ```{r binom-assignments-ex3-check}
 grade_result(
   pass_if(~ (abs(.result - pbinom(9, 18, 0.34)) < 0.001))
@@ -277,6 +299,10 @@ grade_result(
 4. Find the probability that at least 11 of the 18 students have failed to hand in at least one assignment.
 ```{r binom-assignments-ex4, exercise = TRUE}
 
+```
+
+```{r binom-assignments-ex4-solution}
+1 - pbinom(10, 18, 0.34)
 ```
 
 ```{r binom-assignments-ex4-check}
@@ -290,6 +316,10 @@ grade_result(
 
 ```
 
+```{r binom-assignments-ex5-solution}
+pbinom(12, 18, 0.34) - pbinom(5, 18, 0.34)
+```
+
 ```{r binom-assignments-ex5-check}
 grade_result(
   pass_if(~ (abs(.result - (pbinom(12, 18, 0.34) - pbinom(5, 18, 0.34))) < 0.001))
@@ -301,6 +331,10 @@ grade_result(
 
 ```
 
+```{r binom-assignments-ex6-solution}
+18*0.34
+```
+
 ```{r binom-assignments-ex6-check}
 grade_result(
   pass_if(~ (abs(.result - (18*0.34)) < 0.01))
@@ -310,6 +344,10 @@ grade_result(
 7. The standard deviation in the number of successes for a binomial experiment can also be computed. The quantity $\displaystyle{s_X = \sqrt{n\cdot p\left(1 - p\right)}}$, where $n$ denotes the number of trials run and $p$ denotes the probability of success on a single trial is the standard deviation in number of successes. Use the code block below to compute the standard deviation in number of students who have failed to hand in at least one assignent from random samples of 18 students:
 ```{r binom-assignments-ex7, exercise = TRUE}
 
+```
+
+```{r binom-assignments-ex7-solution}
+sqrt(18*0.34*(1 - 0.34))
 ```
 
 ```{r binom-assignments-ex7-check}
