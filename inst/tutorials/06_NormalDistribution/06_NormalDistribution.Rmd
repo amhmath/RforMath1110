@@ -272,7 +272,7 @@ $$\mathbb{P}\left[X\leq q\right] \approx \tt{pnorm(q, mean = \mu, sd = \sigma)}$
 
 ###
 
-The block below is preset to compute the Bob's percentile. Execute the code cell and then adapt the code to find Sally's percentile. Use your results to answer the questions below.  Recall: Bob scored a 1400 on the SAT (mean=1068, sd=210) while Sally scored a 31 on the the ACT (mean=20.8, sd=5.8.) 
+The block below is preset to compute the Bob's percentile. Execute the code cell and then adapt the code to find Sally's percentile. Use your results to answer the questions below.
 
 ```{r compute-percentiles, exercise = TRUE}
 pnorm(1400, 1068, 210)
@@ -338,10 +338,6 @@ For these first few questions I'll draw pictures for you, but you should be prep
 ```{r pnorm-ex1-left, exercise = TRUE}
 
 ```
-   
-```{r pnorm-ex1-left-solution}
-pnorm(boundary1, 0, 1)   
-```
 
 ```{r pnorm-ex1-left-check}
 grade_result(
@@ -366,9 +362,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 
 ```{r pnorm-ex2-left, exercise = TRUE}
 
-```
-```{r pnorm-ex2-left-solution}
-pnorm(boundary2, 0, 1)   
 ```
 
 ```{r pnorm-ex2-left-check}
@@ -395,11 +388,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 ```{r pnorm-ex3-left, exercise = TRUE}
 
 ```
-```{r pnorm-ex3-left-solution}
-# There are two (2) ways to find a right tail:
-1-pnorm(boundary3,0,1); pnorm(boundary3, 0, 1, lower.tail=F)
-  
-```
 
 ```{r pnorm-ex3-left-check}
 grade_result(
@@ -424,9 +412,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 
 ```{r pnorm-ex4-left, exercise = TRUE}
 
-```
-```{r pnorm-ex4-left-solution}
-1-pnorm(boundary4, 0, 1) ; pnorm(boundary4, 0, 1, lower.tail=F)
 ```
 
 ```{r pnorm-ex4-left-check}
@@ -453,9 +438,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 ```{r pnorm-ex5-left, exercise = TRUE}
 
 ```
-```{r pnorm-ex5-left-solution}
-pnorm(boundary5b, 0, 1) - pnorm(boundary5a, 0, 1)  
-```
 
 ```{r pnorm-ex5-left-check}
 grade_result(
@@ -481,9 +463,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 ```{r pnorm-ex6-left, exercise = TRUE}
 
 ```
-```{r pnorm-ex6-left-solution}
-pnorm(boundary6a, 0, 1)+ (1-pnorm(boundary6b,0,1); pnorm(boundary6a, 0, 1)+ pnorm(boundary6b,0,1,lower.tail=F)   
-```
 
 ```{r pnorm-ex6-left-check}
 grade_result(
@@ -508,9 +487,6 @@ ggplot(NULL, aes(c(-3, 3))) +
 
 ```{r pnorm-ex7-left, exercise = TRUE}
 
-```
-```{r pnorm-ex7-left-solution}
-2*pnorm(-boundary7, 0, 1)
 ```
 
 ```{r pnorm-ex7-left-check}
@@ -556,9 +532,6 @@ Recall from earlier that SAT scores followed $N\left(\mu = 1068, \sigma = 210\ri
 ```{r find-percentile, exercise = TRUE, exercise.eval = FALSE}
 qnorm(0.95, 1068, 210)
 ```
-```{r find-percentile-solution}
-qnorm(.9,20.8,5.8) 
-```
 
 ```{r find-percentile-check}
 grade_result(
@@ -588,9 +561,6 @@ Through this last section you'll work through a set of problems, some of which u
 ```{r chick-pox-exp, exercise = TRUE}
 
 ```
-```{r chick-pox-exp-solution}
-chickPoxSampSize*0.9
-```
 
 ```{r chick-pox-exp-check}
 grade_result(
@@ -601,9 +571,6 @@ grade_result(
 + Compute the standard deviation in number of adults in samples of size `r chickPoxSampSize` who will have had chickenpox.
 ```{r chick-pox-sd, exercise = TRUE}
 
-```
-```{r chick-pox-sd-solution}
-sqrt(chickPoxSampSize*0.9*0.1)
 ```
 
 ```{r chick-pox-sd-check}
@@ -629,9 +596,6 @@ question_checkbox(
 ```{r chick-pox-prob-exact1, exercise = TRUE}
 
 ```
-```{r chick-pox-prob-exact1-solution}
-dbinom(floor(0.9*chickPoxSampSize), chickPoxSampSize, 0.9)
-```
 
 ```{r chick-pox-prob-exact1-check}
 grade_result(
@@ -642,9 +606,6 @@ grade_result(
 + Find the probability that exactly `r floor(0.1*chickPoxSampSize)` adults in your sample of size `r chickPoxSampSize` will *not* have had chickenpox.
 ```{r chick-pox-prob-exact2, exercise = TRUE}
 
-```
-```{r chick-pox-prob-exact2-solution}
-dbinom(floor(0.1*chickPoxSampSize), chickPoxSampSize, 0.1)
 ```
 
 ```{r chick-pox-prob-exact2-check}
@@ -657,9 +618,6 @@ grade_result(
 ```{r chick-pox-prob-atmost, exercise = TRUE}
 
 ```
-```{r chick-pox-prob-atmost-solution}
-pbinom(floor(0.75*chickPoxSampSize), chickPoxSampSize, 0.9)
-```
 
 ```{r chick-pox-prob-atmost-check}
 grade_result(
@@ -670,9 +628,6 @@ grade_result(
 + Find the probability that at least `r floor(0.95*chickPoxSampSize)` adults in your sample of size `r chickPoxSampSize` will have had chicken pox.
 ```{r chick-pox-prob-atleast, exercise = TRUE}
 
-```
-```{r chick-pox-prob-atleast-solution}
-1 - pbinom((floor(0.95*chickPoxSampSize) - 1), chickPoxSampSize, 0.9)
 ```
 
 ```{r chick-pox-prob-atleast-check}
@@ -685,9 +640,6 @@ grade_result(
 ```{r chick-pox-prob-between, exercise = TRUE}
 
 ```
-```{r chick-pox-prob-between-solution}
-pbinom((floor(0.9*chickPoxSampSize) - 1), chickPoxSampSize, 0.9) - pbinom(floor(0.8*chickPoxSampSize), chickPoxSampSize, 0.9)
-```                                                                                                              
 
 ```{r chick-pox-prob-between-check}
 grade_result(
@@ -701,9 +653,6 @@ grade_result(
 ```{r z-score-QR, exercise = TRUE}
 
 ```
-```{r z-score-QR-solution}
-(157 - 153)/7.67
-```  
 
 ```{r z-score-QR-check}
 grade_result(
@@ -715,9 +664,7 @@ grade_result(
 ```{r z-score-VR, exercise = TRUE}
 
 ```
-```{r z-score-VR-solution}
-(160- 151)/7
-```  
+
 ```{r z-score-VR-check}
 grade_result(
   pass_if(~ (abs(.result - ((160 - 151)/7)) < 0.01))
@@ -736,13 +683,10 @@ question_radio(
 )
 ```
 
-+ Find the proportion of test takers that Sophia *scored higher than* on the Quantitative Reasoning exam (that is, find her percentile).
++ Find the proportion of test takers Sophia scored higher than on the Quantitative Reasoning exam (that is, find her percentile).
 ```{r GRE-QR-percentile, exercise = TRUE}
 
 ```
-```{r GRE-QR-percentile-solution}
-pnorm(157, 153, 7.67)
-``` 
 
 ```{r GRE-QR-percentile-check}
 grade_result(
@@ -754,10 +698,7 @@ grade_result(
 ```{r GRE-VR-percent-above, exercise = TRUE}
 
 ```
-```{r GRE-VR-percent-above-solution}
-1-pnorm(160, 151, 7); pnorm(160,151,7,lower.tail=F)
-``` 
-    
+
 ```{r GRE-VR-percent-above-check}
 grade_result(
   pass_if(~ (abs(.result - (1 - pnorm(160, 151, 7))) < 0.001))
