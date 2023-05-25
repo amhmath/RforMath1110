@@ -126,7 +126,7 @@ quiz(
 question_checkbox(
   "Which of the following are the correct hypotheses associated with this test?",
   answer("$\\begin{array}{ll} H_0: & p_{\\text{white}} = 0.898,~p_{\\text{black}} = 0.018,~p_{\\text{hispanic}} = 0.040,~p_{\\text{other}} = 0.044\\\\ H_a: & \\text{The distribution is different}\\end{array}$", correct = TRUE),
-  answer("$\\begin{array}{ll} H_0: & \\text{The racial demographics of the NH state prison population match the racial demographics of the State.}\\\\ H_a: & \\text{The distribution is different}\\end{array}$", correct = TRUE),
+  answer("$\\begin{array}{ll} H_0: & \\text{NH prison racial demographics match those of the State.}\\\\ H_a: & \\text{The distribution is different}\\end{array}$", correct = TRUE),
   answer("$\\begin{array}{ll} H_0: & p_{\\text{white}} = p_{\\text{black}}\\\\ H_a: & \\text{The distribution is different.}\\end{array}$"),
   answer("$\\begin{array}{ll} H_0: & p_{\\text{white}} = p_{\\text{black}} = p_{\\text{hispanic}} = p_{\\text{other}} = 0.043\\\\ H_a: & \\text{The distribution is different.}\\end{array}$"),
   answer("$\\begin{array}{ll} H_0: & \\text{The distribution is uniform.}\\\\ H_a: & \\text{The distribution is different}\\end{array}$"),
@@ -143,6 +143,11 @@ Compute the number of prisoners out of the 300 who are expected to be *white*.
 ```{r exp-white, exercise = TRUE}
 
 ```
+```{r exp-white-solution}
+300*0.898
+
+```
+
 
 ```{r exp-white-check}
 grade_result(
@@ -150,12 +155,16 @@ grade_result(
 )
 ```
 
-###
 
 Compute the number of prisoners out of the 300 who are expected to be *black*.
 ```{r exp-black, exercise = TRUE}
 
 ```
+```{r exp-black-solution}
+300*0.018
+
+```
+
 
 ```{r exp-black-check}
 grade_result(
@@ -163,12 +172,16 @@ grade_result(
 )
 ```
 
-###
 
 Compute the number of prisoners out of the 300 who are expected to be *hispanic*.
 ```{r exp-hispanic, exercise = TRUE}
 
 ```
+```{r exp-hispanic-solution}
+300*0.040
+
+```
+
 
 ```{r exp-hispanic-check}
 grade_result(
@@ -176,12 +189,16 @@ grade_result(
 )
 ```
 
-###
 
 Compute the number of prisoners out of the 300 who are expected to be of other races.
 ```{r exp-other, exercise = TRUE}
 
 ```
+```{r exp-other-solution}
+300*0.044
+
+```
+
 
 ```{r exp-other-check}
 grade_result(
@@ -205,6 +222,13 @@ expected <- c()
 #Now compute the chi-squared test statistic.
 
 ```
+```{r test-stat-solution}
+observed <- c(243, 24, 15, 18)
+expected <- c(269.4, 5.4, 12, 13.2)
+sum((observed - expected)^2/expected)
+
+```
+
 
 ```{r test-stat-check}
 observed <- c(243, 24, 15, 18)
@@ -221,6 +245,11 @@ Use the code block below to enter the degrees of freedom for the $\chi^2$-distri
 ```{r df, exercise = TRUE}
 
 ```
+```{r df-solution}
+3
+
+```
+
 
 ```{r df-check}
 grade_result(
@@ -230,11 +259,16 @@ grade_result(
 
 ###
 
-Use the code block below to compute the $p$-value associated with this test. Remember that you can use the function `pchisq(q, df)` to compute the probability to the left of the boundary value `q` under a $\chi^2$ distribution with `df` degrees of freedom.
+Use the code block below to compute the $p$-value associated with this test. Remember that you can use the function `pchisq(q, df)` to compute the probability to the LEFT of the boundary value `q` under a $\chi^2$ distribution with `df` degrees of freedom -- but we want the area to the RIGHT.
 
 ```{r compute-p, exercise = TRUE}
 
 ```
+```{r compute-p-solution}
+1-pchisq(69.15,3)
+
+```
+
 
 ```{r compute-p-check}
 grade_result(
@@ -353,6 +387,11 @@ Under the assumption of the null hypothesis, compute the expected number of the 
 ```{r poverty-drug-use, exercise = TRUE}
 
 ```
+```{r poverty-drug-use-solution}
+2500*0.16*0.14
+
+```
+
 
 ```{r poverty-drug-use-check}
 grade_result(
@@ -366,6 +405,11 @@ Under the assumption of the null hypothesis, compute the expected number of the 
 ```{r lowInc-drug-use, exercise = TRUE}
 
 ```
+```{r lowInc-drug-use-solution}
+2500*0.38*0.14
+
+```
+
 
 ```{r lowInc-drug-use-check}
 grade_result(
@@ -379,6 +423,11 @@ Under the assumption of the null hypothesis, compute the expected number of the 
 ```{r middleInc-drug-use, exercise = TRUE}
 
 ```
+```{r middleInc-drug-use-solution}
+2500*0.35*0.14
+
+```
+
 
 ```{r middleInc-drug-use-check}
 grade_result(
@@ -392,6 +441,11 @@ Under the assumption of the null hypothesis, compute the expected number of the 
 ```{r highInc-drug-use, exercise = TRUE}
 
 ```
+```{r highInc-drug-use-solution}
+2500*0.11*0.14
+
+```
+
 
 ```{r highInc-drug-use-check}
 grade_result(
@@ -456,6 +510,12 @@ Use the code block below to compute the $\chi^2$ test statistic. Look back to ou
 ```{r chi-sq-ind, exercise = TRUE}
 
 ```
+```{r chi-sq-ind-solution}
+observed <- c(341,752,796,221,78,153,116,43)
+expected <- c(344,817,752.5,236.5,56,133,122.5,38.5)
+sum((observed - expected)^2/expected)
+
+```
 
 ```{r chi-sq-ind-check}
 expected <- c(344, 817, 752.5, 236.5, 56, 133, 122.5, 38.5)
@@ -489,6 +549,10 @@ Now that we've computed the test statistic and degrees of freedom associated wit
 
 Use the code block below to compute the $p$-value associated with this test.
 ```{r compute-p-indep, exercise = TRUE}
+
+```
+```{r compute-p-indep-solution}
+1-pchisq(21.25,3)
 
 ```
 
@@ -535,13 +599,13 @@ learnrhash::encoder_logic(strip_output = TRUE)
 learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
-    "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "solutions, please click the button below to generate, copy and paste your hash",
+    "into the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
-``` 
+```
 
 ## Summary
 
