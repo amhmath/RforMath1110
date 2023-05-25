@@ -17,6 +17,7 @@ library(ggplot2)
 library(dplyr)
 library(learnr)
 library(gradethis)
+library(statsr)
 
 
 tutorial_options(exercise.timelimit = 60, exercise.checker = gradethis::grade_learnr)
@@ -37,7 +38,6 @@ In August of 2012, news outlets ranging from the [Washington Post](http://www.wa
 <div id="license">
 This is a derivative of a product of OpenIntro that is released under a [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). The oiginal lab was written for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel.</div>
 
-###
 
 ## The survey
 
@@ -78,7 +78,7 @@ quiz(
 
 Turn your attention to Table 6 (pages 14 and 15) in the Religiosity and Atheism poll documentation, which reports the sample size and response percentages for all 57 countries. While this is a useful format to summarize the data, we will base our analysis on the original data set of individual responses to the survey. These original responses are loaded into this workbook for you in a data frame named `atheism`.
 
-```{r table-v-df-code-block, exercise = TRUE}
+```{r table-v-df-code-block}
 
 ```
 
@@ -313,13 +313,13 @@ learnrhash::encoder_logic(strip_output = TRUE)
 learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
-    "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "solutions, please click the button below to generate, copy and paste your hash",
+    "into the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
-``` 
+```
 
 ## Summary
 
