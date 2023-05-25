@@ -65,7 +65,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-2, echo = FALSE}
 question_radio(
@@ -80,7 +79,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-3, echo = FALSE}
 question_radio(
@@ -95,7 +93,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-4, echo = FALSE}
 question_radio(
@@ -110,7 +107,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-5, echo = FALSE}
 question_radio(
@@ -125,7 +121,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-6, echo = FALSE}
 question_radio(
@@ -140,7 +135,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-7, echo = FALSE}
 question_radio(
@@ -155,7 +149,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-8, echo = FALSE}
 question_radio(
@@ -170,7 +163,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-9, echo = FALSE}
 question_radio(
@@ -185,7 +177,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-10, echo = FALSE}
 question_radio(
@@ -199,7 +190,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1a-question-11, echo = FALSE}
 question_radio(
@@ -212,6 +202,8 @@ question_radio(
   random_answer_order = TRUE
 )
 ```
+
+###
 
 **Try It 1b:** Consider the same scenario. Suppose we wanted the margin of error for the 90% confidence level to be about 1.5%. How large of a sample would you recommend?
 
@@ -232,7 +224,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1b-question-2, echo = FALSE}
 question_radio(
@@ -247,7 +238,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1b-question-3, echo = FALSE}
 question_radio(
@@ -262,7 +252,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1b-question-4, echo = FALSE}
 question_radio(
@@ -277,7 +266,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1b-question-5, echo = FALSE}
 question_radio(
@@ -292,7 +280,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-1b-question-6, echo = FALSE}
 question_radio(
@@ -329,7 +316,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-2-question-2, echo = FALSE}
 question_radio(
@@ -343,7 +329,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-2-question-3, echo = FALSE}
 question_radio(
@@ -358,7 +343,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-2-question-4, echo = FALSE}
 question_radio(
@@ -373,7 +357,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-2-question-5, echo = FALSE}
 question_radio(
@@ -387,7 +370,6 @@ question_radio(
 )
 ```
 
-###
 
 ```{r try-it-2-question-6, echo = FALSE}
 question_radio(
@@ -499,10 +481,11 @@ learnrhash::encoder_logic(strip_output = TRUE)
 learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
-    "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "solutions, please click the button below to generate, copy and paste your hash",
+    "into the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
 ```
+
