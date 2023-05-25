@@ -195,7 +195,7 @@ We'll work with a [dataset on Federal Sentencing from the Southern District of N
 ```{r sentencing-ci-1, echo = FALSE}
 question_radio(
   "To answer the question as asked, we should",
-  answer("Compute a confidence interval", correct = TRUE),
+  answer("Compute a confidence interval",correct = TRUE),
   answer("Conduct a hypothesis test"),
   answer("Compute a probability"),
   answer("Find a required sample size"),
@@ -203,6 +203,7 @@ question_radio(
   random_answer_order = TRUE
 )
 ```
+
 
 ###
 
