@@ -706,7 +706,7 @@ quiz(
   answer("The sample data did not provide significant evidence to suggest that there is difference in average sentence length handed to white versus non-white defendants for drug-related cases in the Southern District of New York State."),
   answer("The sample data proved that there is no difference in the average length of sentences handed down to white versus non-white defendants for drug-related cases in the Southern District of New York State."),
   answer("The sample data provided significant evidence to suggest a difference in the average length of sentences handed down to white versus non-white defendants for drug-related cases in the Southern District of New York State.", correct = TRUE),
-  answer("Sample data cannot be used to test a claim about a population -- different samples yeild different results and so any claim about a population is nonsensicle unless a census was conducted."),
+  answer("Sample data cannot be used to test a claim about a population -- different samples yield different results and so any claim about a population is nonsensical unless a census was conducted."),
   allow_retry = TRUE,
   random_answer_order = TRUE
   ),
@@ -715,7 +715,9 @@ quiz(
     answer("We have proved that racial bias exists in sentencing for drug-related cases in the Southern District of New York State"),
     answer("We have found evidence to support the hypothesis that racial bias exists in sentencing for drug-related cases in the Southern District of New York State. Our result suggests that a more formal audit of sentencing recommendations should be undertaken.", correct = TRUE),
     answer("We have found evidence to support the hypothesis that racial bias exists in the courts across all case types."),
-    answer("We have found evidence to suggest that racial minorities receive more lengthy sentences in drug-related cases in the Southern District of New York State.")
+    answer("We have found evidence to suggest that racial minorities receive more lengthy sentences in drug-related cases in the Southern District of New York State."),
+  allow_retry = TRUE,
+  random_answer_order = TRUE   
   )
 )
 ```
