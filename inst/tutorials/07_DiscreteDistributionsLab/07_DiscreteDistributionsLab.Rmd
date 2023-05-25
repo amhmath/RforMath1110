@@ -40,7 +40,6 @@ The original lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etink
 from a lab written by Mark Hansen of UCLA Statistics.
 </div>
 
-###
 
 ## Kobe Bryant and the *Hot Hand*
 
@@ -80,9 +79,10 @@ For example, in Game 1 Kobe had the following sequence of hits and misses from h
 
 \[ \textrm{H M | M | H H M | M | M | M} \]
 
-To verify this run the command `kobe$basket[1:9]` using the code block below. Remember that this accesses the `basket` column of the `kobe` data frame, and the `[1:9]` says that we want entry 1 through entry 9 of that column.
+To verify this, execute the command `kobe$basket[1:9]` using the code block below. Remember that this accesses the `basket` column of the `kobe` data frame, and the `[1:9]` says that we want entry 1 through entry 9 of that column.
 
 ```{r first9, exercise = TRUE}
+kobe$basket[1:9]
 
 ```
 
@@ -123,6 +123,10 @@ Store the result of `calc_streak(kobe$basket)` to a new object called `kobe_stre
 ```{r calc-streak-kobe, exercise = TRUE}
 
 ```
+```{r calc-streak-kobe-solution}
+kobe_streak<-calc_streak(kobe$basket)
+
+```
 
 ###
 
@@ -133,14 +137,13 @@ Now use `ggplot` to make a barplot of `kobe_streak`.
 ```
 
 ```{r plot-streak-kobe-solution}
-ggplot() + geom_bar(mapping = aes(x = kobe_streak))
+ggplot() + geom_bar(aes(kobe_streak))
 ```
 
 ```{r plot-streak-kobe-check}
 grade_code()
 ```
 
-<div id = "plot-streak-kobe-hint"> Since `kobe_streak` is a vector rather than a data frame, we should leave the `data` argument out of the call to `ggplot()`. That is, your code should start with `ggplot() +` </div>
 
 ###
 
@@ -233,6 +236,11 @@ As you've discovered, if you wanted to simulate flipping a fair coin 100 times, 
 ```{r sim-fair-coin, exercise = TRUE}
 
 ```
+```{r sim-fair-coin-solution}
+sim_fair_coin<-sample(c("heads", "tails"), size = 100, replace = TRUE)
+table(sim_fair_coin)
+```
+
 
 ###
 
@@ -376,11 +384,11 @@ learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
     "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "enter it in the appropriate Hash Assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
-)
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
+
 ```
 
 <br/>
