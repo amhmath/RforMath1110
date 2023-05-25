@@ -190,6 +190,8 @@ We'll work with a [dataset on Federal Sentencing from the Southern District of N
 
 **Question 1:** Compute a 95% confidence interval for the average sentence length for a drug-related charge in the Southern District of New York State.
 
+###
+
 ```{r sentencing-ci-1, echo = FALSE}
 question_radio(
   "To answer the question as asked, we should",
