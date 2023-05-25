@@ -71,7 +71,6 @@ In this workbook, we investigate the ways in which the statistics from a random 
 This is a derivative of a product of OpenIntro that is released under a [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel from a lab written by Mark Hansen of UCLA Statistics.
 </div>
 
-###
 
 ## The data
 
@@ -89,6 +88,12 @@ Use the code block below to answer some basic questions about the `ames` dataset
 ```{r explore-ames, exercise = TRUE}
 
 ```
+```{r explore-ames-solution}
+head(ames)
+dim(ames)
+
+```
+
 
 ```{r explore-ames-questions, echo = FALSE}
 quiz(
@@ -148,6 +153,14 @@ Let's look at the distributions of price and area in our population of home sale
 ```{r eda-sandbox, exercise = TRUE}
 
 ```
+```{r eda-sandbox-solution}
+mean(ames$SalePrice)
+median(ames$SalePrice)
+mean(ames$Gr.Liv.Area)
+median(ames$Gr.Liv.Area)
+
+```
+
 
 ```{r eda-questions, echo = FALSE}
 quiz(
@@ -215,6 +228,12 @@ Use the code block below to verify your answers about the shape of the distribut
 ggplot() + geom_histogram(mapping = aes(x = area)) + ylab("Count") + xlab("Size (Sq ft)") + ggtitle("Histogram of Home Size")
 ggplot() + geom_boxplot(mapping = aes(y = area)) + ylab("Size (Sq ft)") + ggtitle("Boxplot of Home Sizes") + coord_flip()
 ```
+```{r plot-area-price-dists-solution}
+ggplot() + geom_histogram(mapping = aes(x = area)) + ylab("Count") + xlab("Size (Sq ft)") + ggtitle("Histogram of Home Size")
+ggplot() + geom_boxplot(mapping = aes(y = area)) + ylab("Size (Sq ft)") + ggtitle("Boxplot of Home Sizes") + coord_flip()
+ggplot() + geom_histogram(mapping = aes(x = price)) + ylab("Count") + xlab("Price ($)") + ggtitle("Histogram of Home Prices")
+ggplot() + geom_boxplot(mapping = aes(y = price)) + ylab("Price ($)") + ggtitle("Boxplot of Home Prices") + coord_flip()
+```
 
 ## Taking samples
 
@@ -275,6 +294,11 @@ Depending on which 50 homes you selected, your estimate could be a bit above or 
 
 Use the code block below to take a second sample, also of size 50, and call it `samp2`. How does the mean of `samp2` compare with the mean of `samp1`? 
 ```{r second-sample, exercise = TRUE}
+
+```
+```{r second-sample-solution}
+samp2 <- sample(area, 50)
+mean(samp2)
 
 ```
 
@@ -507,8 +531,22 @@ To get a sense of the effect that sample size has on our distribution, build up 
 #   sample_means50[i] <- mean(samp)
 #   }
 ```
+```{r samp10-samp100-solution}
+sample_means10 <- rep(NA, 5000)
 
-###
+for(i in 1:5000){
+   samp <- sample(area, 10)
+   sample_means10[i] <- mean(samp)
+   }
+
+sample_means100 <- rep(NA, 5000)
+
+for(i in 1:5000){
+   samp <- sample(area, 100)
+   sample_means100[i] <- mean(samp)
+   }
+```
+
 
 Now that you've created the two new sampling distributions we can see the effect that different sample sizes have on the sampling distribution, by plotting the three distributions on top of one another. I've combined the simulated sample means data into a single data frame for convenient plotting. Run the code block below to create the plots.
 
@@ -701,11 +739,11 @@ learnrhash::encoder_logic(strip_output = TRUE)
 learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
-    "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "solutions, please click the button below to generate, copy and paste your hash",
+    "into the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
 ``` 
 
