@@ -164,6 +164,24 @@ Using the code block below and your `inference` function, calculate confidence i
 ```{r use-inference, exercise = TRUE}
 
 ```
+```{r use-inference-solution}
+ind12 <- atheism[atheism$nationality %in% "India" & atheism$year %in% "2012", ]
+table(ind12$response)/nrow(ind12)
+
+chi12 <- atheism[atheism$nationality %in% "China" & atheism$year %in% "2012", ]
+table(chi12$response)/nrow(chi12)
+
+
+inference(y = ind12$response, est = "proportion", type = "ci", method = "theoretical", 
+          success = "atheist")
+
+
+inference(y = chi12$response, est = "proportion", type = "ci", method = "theoretical", 
+          success = "atheist")
+
+```
+
+
 
 ## How does the proportion affect the margin of error?
 
@@ -250,21 +268,51 @@ ggplot() + geom_histogram(mapping = aes(x = p_hats)) + labs(title = "p = 0.1, n 
 These commands build up the sampling distribution of $\hat{p}$ using the familiar `for` loop. You can read the sampling procedure for the first line of code inside the `for` loop as, "take a sample of size $n$ with replacement from the choices of atheist and non-atheist with probabilities $p$ and $1 - p$,respectively." The second line in the loop says, "calculate the proportion of atheists in this sample and record this value." The loop allows us to repeat this process 5,000 times to build an approximation of the sampling distribution.
 
 Use the code block below to repeat the simulation we just ran but with `n = 400` and `p = 0.1`. Be sure to plot your result and compare it to your original simulation. What impact did lowering the number of observations have?
-```{r p-dist-400-10, exercise = TRUE}
+```{r p-dist-400-10, exercise = TRUE, exercise.eval = FALSE}
+p <- 0.1
+n <- 400
+p_hats <- rep(0, 5000)
+
+for(i in 1:5000){
+  samp <- sample(c("atheist", "non_atheist"), n, replace = TRUE, prob = c(p, 1-p))
+  p_hats[i] <- sum(samp == "atheist")/n
+}
+
+ggplot() + geom_histogram(mapping = aes(x = p_hats)) + labs(title = "p = 0.1, n = 400", x = "Estimates for p") + xlim(c(0, 0.18))
 
 ```
 
 ###
 
 Now re-run the experiment again, but with `n = 1040` and `p = 0.02`. Again, think about the impact that a smaller population proportion has on the distribution of estimates for the population proportion.
-```{r p-dist-1040-02, exercise = TRUE}
+```{r p-dist-1040-02, exercise = TRUE, exercise.eval = FALSE}
+p <- 0.02
+n <- 1040
+p_hats <- rep(0, 5000)
+
+for(i in 1:5000){
+  samp <- sample(c("atheist", "non_atheist"), n, replace = TRUE, prob = c(p, 1-p))
+  p_hats[i] <- sum(samp == "atheist")/n
+}
+
+ggplot() + geom_histogram(mapping = aes(x = p_hats)) + labs(title = "p = 0.02, n = 1040", x = "Estimates for p") + xlim(c(0, 0.18))
 
 ```
 
 ###
 
 Re-run the experiment one last time, but with `n = 400` and `p = 0.02`. Compare each of your resulting distributions. How does this connect back to the assumptions for inference with categorical data?
-```{r p-dist-400-02, exercise = TRUE}
+```{r p-dist-400-02, exercise = TRUE, exercise.eval = FALSE}
+p <- 0.02
+n <- 400
+p_hats <- rep(0, 5000)
+
+for(i in 1:5000){
+  samp <- sample(c("atheist", "non_atheist"), n, replace = TRUE, prob = c(p, 1-p))
+  p_hats[i] <- sum(samp == "atheist")/n
+}
+
+ggplot() + geom_histogram(mapping = aes(x = p_hats)) + labs(title = "p = 0.02, n = 400", x = "Estimates for p") + xlim(c(0, 0.18))
 
 ```
 
@@ -292,16 +340,42 @@ The question of atheism was asked by WIN-Gallup International in a similar surve
 ```{r on-your-own-1, exercise = TRUE}
 
 ```
+```{r on-your-own-1-solution}
+sp12 <- atheism[atheism$nationality %in% "Spain" & atheism$year %in% "2012", ]
+table(sp12$response)/nrow(sp12)
+
+sp05 <- atheism[atheism$nationality %in% "Spain" & atheism$year %in% "2005", ]
+table(sp05$response)/nrow(sp05)
+
+
+inference(y = sp12$response, est = "proportion", type = "ci", method = "theoretical", 
+          success = "atheist")
+
+
+inference(y = sp05$response, est = "proportion", type = "ci", method = "theoretical", 
+          success = "atheist")
+
+```
+
 
 2. If in fact there has been no change in the atheism index in the countries listed in Table 4, in how many of those countries would you expect to detect a change (at a significance level of 0.05) simply by chance? *Hint:* Look in the textbook index under Type 1 error.
 ```{r on-your-own-2, exercise = TRUE}
 
 ```
+```{r on-your-own-2-solution}
+.05*39
+```
+
 
 3. Suppose you're hired by the local government to estimate the proportion of residents that attend a religious service on a weekly basis. According to the guidelines, the estimate must have a margin of error no greater than 1% with 95% confidence. You have no idea what to expect for $p$. How many people would you have to sample to ensure that you are within the guidelines? *Hint:* Refer to your plot of the relationship between $p$ and margin of error. Do not use the data set to answer this question.
 ```{r on-your-own-3, exercise = TRUE}
 
 ```
+```{r on-your-own-3-solution}
+ceiling(.5*.5*(1.96/.01)^2)
+
+```
+
 
 ## Submit
 
