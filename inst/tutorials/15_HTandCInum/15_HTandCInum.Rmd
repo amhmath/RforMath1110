@@ -216,7 +216,7 @@ grade_result(
 ```
 
 <div id="sentencing-ci-2-hint">
-The variable `SentenceMonths` is a column within the `SDNYdrug` data frame. Remember that you can access columns in a data frame with the `$` operator.
+The variable `SentenceMonths` is a column within the `SDNYdrug` data frame. Remember that you can access columns in a data frame with the `$` operator. Remember, we compute the mean with the `mean()` function.
 </div>
 
 ###
@@ -248,7 +248,7 @@ grade_result(
 ```
 
 <div id = "sentencing-ci-4-hint">
-Remember that you can compute the standard deviation in R with the `sd()` function. Additionally, you can find the number of rows in a data frame by passing the name of the data frame to R's `nrow()` function. The `sqrt()` function will also be useful to you.
+Remember that you can compute the standard deviation in R with the `sd()` function. Additionally, you can find the number of rows in a data frame by passing the name of the data frame to R's `nrow()` function. The `sqrt()` function will also be useful to you. `sd(SDNYdrug$SentenceMonths)/sqrt(nrow(SDNYdrug))`
 </div>
 
 ###
@@ -295,7 +295,7 @@ grade_result(
 ```
 
 <div id = "sentencing-ci-7-hint">
-Did you try using 1.96? Remember that we can't use the normal distribution here. You can find the critical value you need by making use of the `qt()` function.
+Did you try using 1.96? Remember that we can't use the normal distribution here. You can find the critical value you need by making use of the `qt()` function. `qt(.975,nrow(SDNYdrug)-1)`
 </div>
 
 ###
@@ -308,6 +308,11 @@ Use the code block below to compute the lower bound for the 95% confidence inter
 ```{r sentencing-ci-8, exercise = TRUE}
 
 ```
+```{r sentencing-ci-8-solution}
+42.7465-1.9685*3.222
+
+```
+
 
 ```{r sentencing-ci-8-check}
 grade_result(
@@ -321,6 +326,11 @@ And use the code block below to compute the upper bound for the 95% confidence i
 ```{r sentencing-ci-9, exercise = TRUE}
 
 ```
+```{r sentencing-ci-9-solution}
+42.7465+1.9685*3.222
+
+```
+
 
 ```{r sentencing-ci-9-check}
 grade_result(
@@ -392,7 +402,7 @@ question_radio(
 
 ```{r sentencing-ht-3, echo = FALSE}
 question_radio(
-  "Does this hypothesis test involve testing a statement about the mean ($\\mu$), a proportion ($p$), or something else?",
+  "Does this hypothesis test involve testing a statement about the mean ($\mu$), a proportion ($p$), or something else?",
   answer("One or more means", correct = TRUE),
   answer("One or more proportions"),
   answer("Something else altogether"),
@@ -588,6 +598,11 @@ Compute the point estimate
 ```{r sentencing-ht-16, exercise = TRUE}
 
 ```
+```{r sentencing-ht-16-solution}
+29.795-44.719
+
+```
+
 
 ```{r sentencing-ht-16-check}
 grade_result(
@@ -601,6 +616,12 @@ Compute the standard error
 ```{r sentencing-ht-17, exercise = TRUE}
 
 ```
+```{r sentencing-ht-17-solution}
+sqrt(36.53^2/37+55.88^2/243)
+
+```
+
+
 
 ```{r sentencing-ht-17-check}
 grade_result(
@@ -614,6 +635,11 @@ Compute the test statistic
 ```{r sentencing-ht-18, exercise = TRUE}
 
 ```
+```{r sentencing-ht-18-solution}
+-14.942/6.994
+
+```
+
 
 ```{r sentencing-ht-18-check}
 grade_result(
@@ -627,6 +653,11 @@ Compute the degrees of freedom for this test.
 ```{r sentencing-ht-18_5, exercise = TRUE}
 
 ```
+```{r sentencing-ht-18_5-solution}
+min(37-1,243-1)
+
+```
+
 
 ```{r sentencing-ht-18_5-check}
 grade_result(
@@ -638,6 +669,10 @@ grade_result(
 
 Compute the p-value
 ```{r sentencing-ht-19, exercise = TRUE}
+
+```
+```{r sentencing-ht-19-solution}
+2*pt(-2.13,26)
 
 ```
 
@@ -692,13 +727,14 @@ learnrhash::encoder_logic(strip_output = TRUE)
 learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
-    "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "solutions, please click the button below to generate, copy and paste your hash",
+    "into the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
 ```
+
 
 ## Summary
 
