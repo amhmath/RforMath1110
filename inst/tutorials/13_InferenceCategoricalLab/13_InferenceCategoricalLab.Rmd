@@ -78,7 +78,7 @@ quiz(
 
 Turn your attention to Table 6 (pages 14 and 15) in the Religiosity and Atheism poll documentation, which reports the sample size and response percentages for all 57 countries. While this is a useful format to summarize the data, we will base our analysis on the original data set of individual responses to the survey. These original responses are loaded into this workbook for you in a data frame named `atheism`.
 
-```{r table-v-df-code-block, exercise=FALSE}
+```{r table-v-df-code-block, exercise=TRUE}
 
 ```
 
