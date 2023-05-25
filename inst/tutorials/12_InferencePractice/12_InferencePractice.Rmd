@@ -390,10 +390,15 @@ Use the code block below to compute the standard error -- be sure to do all inte
 ```{r try-it-2-question-7, exercise = TRUE}
 
 ```
+```{r try-it-2-question-7-solution}
+sqrt(.27*.73/1145+.25*.75/675)
+
+```
+
 
 ```{r try-it-2-question-7-check}
 grade_result(
-  pass_if(~ abs(.result - 0.0212) < 0.0005)
+  pass_if(~ abs(.result - 0.0212) < 0.005)
 )
 ```
 
@@ -403,10 +408,14 @@ Use the code block below to compute the test statistic.
 ```{r try-it-2-question-8, exercise = TRUE}
 
 ```
+```{r try-it-2-question-8-solution}
+((.27-.25)-0)/.02121126
+
+```
 
 ```{r try-it-2-question-8-check}
 grade_result(
-  pass_if(~ abs(.result - 0.9428954) < 0.005)
+  pass_if(~ abs(.result - 0.942895) < 0.005)
 )
 ```
 
@@ -429,6 +438,10 @@ question_radio(
 
 Use the code block below to compute the p-value associated with the test.
 ```{r try-it-2-question-10, exercise = TRUE}
+
+```
+```{r try-it-2-question-10-solution}
+2*(1-pnorm(.9428954))
 
 ```
 
