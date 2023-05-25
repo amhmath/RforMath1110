@@ -17,7 +17,7 @@ library(ggplot2)
 library(dplyr)
 library(learnr)
 library(gradethis)
-library(statsr)
+#library(statsr)
 
 
 tutorial_options(exercise.timelimit = 60, exercise.checker = gradethis::grade_learnr)
