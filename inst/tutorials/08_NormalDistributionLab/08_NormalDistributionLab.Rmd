@@ -27,6 +27,11 @@ mhgtmean <- mean(mdims$hgt)
 mhgtsd <- sd(mdims$hgt)
 fhgtmean <- mean(fdims$hgt)
 fhgtsd <- sd(fdims$hgt)
+mwgtmean <- mean(mdims$wgt)
+mwgtsd <- sd(mdims$wgt)
+fwgtmean <- mean(fdims$wgt)
+fwgtsd <- sd(fdims$wgt)
+
 
 tutorial_options(exercise.timelimit = 60, exercise.checker = gradethis::grade_learnr)
 
@@ -96,6 +101,11 @@ grade_code()
 Use the code block below to make a histogram of men's heights and a histogram of women's heights. How would you compare the various aspects of the two distributions? Check back on the data visualization workbook if you need a refresher on plotting.
 
 ```{r plot-hgt-hists, exercise = TRUE, message = FALSE, warning = FALSE, fig.width = 4, fig.height = 4}
+
+```
+```{r plot-hgt-hists-solution}
+ggplot()+geom_bar(aes(mdims$hgt))
+ggplot()+geom_bar(aes(fdims$hgt))
 
 ```
 
@@ -207,6 +217,13 @@ Use the code block below to take a random sample of heights (you can copy and pa
 ```{r sim-norm-qq-plot, exercise = TRUE}
 
 ```
+```{r sim-norm-qq-plot-solution}
+sim_norm <- rnorm(n = length(fdims$hgt), mean = fhgtmean, sd = fhgtsd)
+qqnorm(sim_norm)
+qqline(sim_norm)
+
+```
+
 
 Do all of the points fall exactly on the line?  How does this plot compare to the probability plot for the real data?
 
@@ -227,6 +244,11 @@ Use the `qqnormsim()` function and the code block below to determine whether or 
 ```{r fwght-normal, exercise = TRUE, fig.height = 8}
 
 ```
+```{r fwght-normal-solution}
+qqnormsim(fdims$wgt)
+
+```
+
 
 ```{r weights-question, echo = FALSE}
 question_radio(
@@ -248,14 +270,19 @@ It turns out that statisticians know a lot about the normal distribution. Once w
 
 ###
 
-**Question 1:** What is the probability that a randomly chosen young adult female is taller than 6 feet (about 182 cm)? Use the code block below to answer this question assuming that female heights are normally distributed. That is, use the `pnorm()` function we were introduced to in the previous workbook. (The study that published this data set is clear to point out that the sample was not random and therefore inference to a general population is not suggested.  We do so here only as an exercise.)
+**Question 1:** What is the probability that a randomly chosen young adult female is taller than 6 feet (about 182 cm)? Use the code block below to answer this question assuming that female heights are normally distributed. That is, use the `pnorm()` function we were introduced to in the previous workbook, and recall we used `fhgtmean` and `fhgtsd` for the mean and sd of female height. (The study that published this data set is clear to point out that the sample was not random and therefore inference to a general population is not suggested.  We do so here only as an exercise.)
 ```{r prob-height-norm, exercise = TRUE}
 
 ```
+```{r prob-height-norm-solution}
+1-pnorm(182,fhgtmean,fhgtsd)
+
+```
+
 
 ```{r prob-height-norm-check}
 grade_result(
-  pass_if(~ (abs(.result - (1 - pnorm(182, fhgtmean, fhgtsd))) < 0.001))
+  pass_if(~ (abs(.result - (**1 - pnorm(182, fhgtmean, fhgtsd)**)) < 0.001))
 )
 ```
 
@@ -272,10 +299,15 @@ Although the probabilities are not exactly the same, they are reasonably close. 
 
 ###
 
-**Question 2:** What is the probability that a randomly chosen young adult female weighs more than 80kg? Use the code block below to answer this question making the assumption that female weights are normally distributed (recall that we said this assumption was not a good one).
+**Question 2:** What is the probability that a randomly chosen young adult female weighs more than 80kg? Use the code block below to answer this question making the assumption that female weights are normally distributed (recall that we said this assumption was not a good one). Also, we have assigned `fwgtmean` and `fwgtsd` to the mean and sd of female weight. 
 ```{r wgt-norm-prob, exercise = TRUE}
 
 ```
+```{r wgt-norm-prob-solution}
+1-pnorm(182,fwgtmean,fwgtsd)
+
+```
+
 
 ###
 
@@ -283,6 +315,11 @@ Compute the empirical probability that a randomly chosen young adult female weig
 ```{r wgt-emp-prob, exercise = TRUE}
 
 ```
+```{r wgt-emp-prob-solution}
+sum(fdims$wgt > 80) / length(fdims$wgt)
+
+```
+
 
 ###
 
@@ -300,10 +337,10 @@ learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
     "solutions, please click the button below to generate your hash and",
-    "enter it on this week's Google Form in Blackboard.",
+    "enter it in the appropriate hash assignment in MyOpenMath.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
+  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
 )
 ```
 
