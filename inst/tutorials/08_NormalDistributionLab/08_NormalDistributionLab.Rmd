@@ -48,7 +48,6 @@ In this workbook we'll continue our investigation into the probability distribut
 This is a derivative of a product of OpenIntro that is released under a [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). This lab was adapted for OpenIntro by Andrew Bray and Mine &Ccedil;etinkaya-Rundel from a lab written by Mark Hansen of UCLA Statistics.
 </div>
 
-###
 
 ## The Data
 
@@ -212,7 +211,7 @@ In the `rnorm()` function above, the first argument indicates how many numbers y
 
 ###
 
-Use the code block below to take a random sample of heights (you can copy and paste the `sim_norm` line from the code block above) and make a normal probability plot of the simulated data from the truely normal distribution.
+Use the code block below to take a random sample of heights (you can copy and paste the `sim_norm` line from the code block above) and make a normal probability plot of the simulated data from the truly normal distribution.
 
 ```{r sim-norm-qq-plot, exercise = TRUE}
 
