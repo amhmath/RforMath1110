@@ -686,7 +686,7 @@ grade_result(
 
 ```
 ```{r chick-pox-prob-atleast-solution}
-pbinom(63,68,0.9)
+1-pbinom(63,68,0.9)
 ```
 
 ```{r chick-pox-prob-atleast-check}
