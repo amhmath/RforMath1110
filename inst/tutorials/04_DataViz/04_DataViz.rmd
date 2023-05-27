@@ -239,7 +239,7 @@ grade_code()
 
 ###
 
-Now make a scatterplot of average highway miles per gallon (`hwy`) exlained by number of cylinders (`cyl`).
+Now make a scatterplot of average highway miles per gallon (`hwy`) explained by number of cylinders (`cyl`).
 
 ```{r plot-hwy-cyl, exercise = TRUE}
 

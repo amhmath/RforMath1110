@@ -101,7 +101,7 @@ quiz(
 
 ###
 
-Use the code block below to compute the probability of observing a random sample of 45 hens from this species which lays an average of at least 37 eggs.
+Use the code block below to compute the probability of observing a random sample of 45 hens from this species which lays an average of at least 37 eggs. Recall, `\mu=35` and `\sigma=18.2`.
 ```{r prob1-5, exercise = TRUE}
 
 ```
@@ -247,7 +247,16 @@ quiz(
 
 ###
 
-Now we'll begin building the test statistic. Use the code block below to input or compute the point estimate for our population parameter.
+Now we'll begin building the test statistic. Use the code block below to input or compute the point estimate for our population parameter. Recall, we sampled 9 women and 14 men and found:
+
+
+<center>
+$\begin{array}{|c|c|c|} \hline & \text{Men} & \text{Women} \\ \hline
+\bar{x} & 39 & 44\\ \hline
+s & 4.5 & 6.2 \\ \hline \end{array}$
+</center>
+
+
 ```{r prob2-9, exercise = TRUE}
 
 ```
@@ -374,7 +383,7 @@ question_radio(
 
 ```{r prob3-3, echo = FALSE}
 question_radio(
-  "Is your confidence interval being build to capture a mean ($\\mu$), a proportion ($p$), or something else?",
+  "Is your confidence interval being built to capture a mean ($\\mu$), a proportion ($p$), or something else?",
   answer("A mean or difference in means", correct = TRUE),
   answer("A proportion or difference in proportions"),
   answer("Something else altogether"),
