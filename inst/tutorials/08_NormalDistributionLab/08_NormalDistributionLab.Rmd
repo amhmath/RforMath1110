@@ -274,14 +274,14 @@ It turns out that statisticians know a lot about the normal distribution. Once w
 
 ```
 ```{r prob-height-norm-solution}
-1-pnorm(182,fhgtmean,fhgtsd)
+1-pnorm(182,fhgtmean=164.87,fhgtsd=6.544)
 
 ```
 
 
 ```{r prob-height-norm-check}
 grade_result(
-  pass_if(~ (abs(.result - (1 - pnorm(182, fhgtmean, fhgtsd))) < 0.001))
+  pass_if(~ (abs(.result - (**1 - pnorm(182, fhgtmean, fhgtsd)**)) < 0.001))
 )
 ```
 
