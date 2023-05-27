@@ -102,7 +102,7 @@ quiz(
 ###
 
 Use the code block below to compute the probability of observing a random sample of 45 hens from this species which lays an average of at least 37 eggs.  
-#Recall, $\\mu=35$ and <span class="math inline">\(\sigma=18.2\)</span>.
+#Recall, <span class="math inline">\(\mu=35\)</span> and <span class="math inline">\(\sigma=18.2\)</span>.
 ```{r prob1-5, exercise = TRUE}
 
 ```
