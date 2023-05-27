@@ -238,7 +238,7 @@ ggplot(data = pop) + geom_point(mapping = aes(x = x, y = y), size = 2, color = "
 ```{r echo = FALSE, eval = TRUE, fig.width=3.5, fig.height=2.75}
 pop$samp <- sample(0:1, 100, prob = c(0.9,0.10), replace = TRUE)
 pop$samp <- as.factor(pop$samp)
-ggplot(data = pop) + geom_point(mapping = aes(x = x, y = y, color = samp), size = 2, alpha = 0.8) + scale_color_manual(values = c("blue", "orange")) + guides(<scale> = "none") + labs(title = "Simple Random Sample")
+ggplot(data = pop) + geom_point(mapping = aes(x = x, y = y, color = samp), size = 2, alpha = 0.8) + scale_color_manual(values = c("blue", "orange")) + guides(color = "none") + labs(title = "Simple Random Sample")
 ```
 </center>
 
