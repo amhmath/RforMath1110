@@ -374,7 +374,7 @@ Use `ggplot()+geom_bar(aes(sim_streak))` to give you a better picture of the res
 
 ```
 <div id="discuss-q2-hint">
-Use `sim_basket2 <- sample(c("H", "M"), size = 133, prob = c(0.45, 0.55), replace = TRUE)` and `sim_streak2<-calc_streak(sim-basket2)' to generate a second simulation.  Then run `ggplot()+geom_bar(aes(sim_streak2))` to give you a nice picture of the results.  Again, be sure to put your answers in quotes so R knows you are entering a string and not code.
+Use `sim_basket2 <- sample(c("H", "M"), size = 133, prob = c(0.45, 0.55), replace = TRUE)` and `sim_streak2<-calc_streak(sim-basket2)` to generate a second simulation.  Then run `ggplot()+geom_bar(aes(sim_streak2))` to give you a nice picture of the results.  Again, be sure to put your answers in quotes so R knows you are entering a string and not code.
 </div>
 
 3. How does Kobe Bryant's distribution of streak lengths compare to the distribution of streak lengths for the simulated shooter? Using this comparison, do you have evidence that the hot hand model fits Kobe's shooting patterns? Explain.
