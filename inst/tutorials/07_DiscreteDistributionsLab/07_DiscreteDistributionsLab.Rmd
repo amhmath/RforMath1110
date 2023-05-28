@@ -244,7 +244,7 @@ table(sim_fair_coin)
 
 ###
 
-Since there are only two elements in the *outcomes*, the probability that we "flip" a coin and it lands heads is 0.5. Say we're trying to simulate an unfair coin that we know only lands heads 20% of the time. We can adjust for this by adding an argument called `prob`, which provides a vector of two probability weights. Execute the following code to simulate this unfair coin.
+Since there are only two elements in the *outcomes*, the probability that we "flip" a coin and it lands heads is 0.5. Say we're trying to simulate an unfair coin that we know only lands heads 20% of the time. We can adjust for this by adding an argument called `prob`, which provides a vector of two probability weights.  (if we don't stipulate a probability, R assumes 50%-50%.) Execute the following code to simulate this unfair coin.
 
 ```{r sim-unfair-coin, exercise = TRUE, exercise.eval = FALSE}
 sim_unfair_coin <- sample(c("heads", "tails"), size = 100, replace = TRUE, prob = c(0.2, 0.8))
@@ -265,7 +265,7 @@ sim_basket <- sample(c("H", "M"), size = 1, replace = TRUE)
 
 ###
 
-To make a valid comparison between Kobe and our simulated independent shooter, we need to align both their shooting percentage and the number of attempted shots. Use the code block below to help you find the number of shots we need to simulate.
+To make a valid comparison between Kobe and our simulated independent shooter, we need to align both their shooting percentage and the number of attempted shots. Use the code block below to help you find the number of shots we need to simulate. Hint: use `nrow()`.
 
 ```{r find-num-shots, exercise = TRUE}
 
@@ -345,6 +345,7 @@ Use `calc_streak` function in the code block below to compute the streak lengths
 
 ```{r sim-streak-solution}
 sim_streak <- calc_streak(sim_basket)
+sim_streak
 ```
 
 ```{r sim-streak-check}
@@ -360,12 +361,21 @@ Okay, now you've got everything you need in order to help you discover whether t
 ```{r discuss-q1, exercise = TRUE, exercise.setup = "compare-basket-setup"}
 
 ```
+<div id="discuss-q1-hint">
+Use `ggplot()+geom_bar(aes(sim_streak))` to give you a better picture of the results.  Also, this question is asking for a discussion, that is, a sentence or two, so be sure to put your answer in quotes so R knows you are entering a string and not code.
+</div>
+
+
+
 
 2. If you were to run the simulation of the independent shooter a second time, how would you expect its streak distribution to compare to the distribution from the question above? Exactly the same? Somewhat similar? Totally different? Explain your reasoning.
 
 ```{r discuss-q2, exercise = TRUE}
 
 ```
+<div id="discuss-q2-hint">
+Use `sim_basket2 <- sample(c("H", "M"), size = 133, prob = c(0.45, 0.55), replace = TRUE)` and `sim_streak2<-calc_streak(sim-basket2)' to generate a second simulation.  Then run `ggplot()+geom_bar(aes(sim_streak2))` to give you a nice picture of the results.  Again, be sure to put your answers in quotes so R knows you are entering a string and not code.
+</div>
 
 3. How does Kobe Bryant's distribution of streak lengths compare to the distribution of streak lengths for the simulated shooter? Using this comparison, do you have evidence that the hot hand model fits Kobe's shooting patterns? Explain.
 
