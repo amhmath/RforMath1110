@@ -197,7 +197,7 @@ question_radio(
 
 ```{r prob2-6, echo = FALSE}
 question_radio(
-  "Do we know the population standard deviation(s), $//sigma_i$, for age in each group?",
+  "Do we know the population standard deviation(s), $\\sigma_i$, for age in each group?",
   answer("Yes, the population standard deviations are known.", message = "Oops. We are presented with a standard deviation in ages for each group, but those standard deviations belong only to the ages measured in each sample, not the population."),
   answer("No, the population standard deviations are not known.", correct = TRUE),
   allow_retry = TRUE,
@@ -408,7 +408,7 @@ question_radio(
 
 ```{r prob3-5, echo = FALSE}
 question_radio(
-  "Do we know the population standard deviation $//sigma$ for dollars saved?",
+  "Do we know the population standard deviation $\\sigma$ for dollars saved?",
   answer("Yes, the population standard deviation is known.", message = "Oops. We are presented with a standard deviation in savings but that standard deviation belongs only to the observations in the sample, not the entire population."),
   answer("No, the population standard deviation is not known.", correct = TRUE),
   allow_retry = TRUE,
@@ -1219,7 +1219,7 @@ question_radio(
 
 ```{r prob8-6, echo = FALSE}
 question_radio(
-  "Do we know the population standard deviation(s) $//sigma for hours spent on Quiddich?",
+  "Do we know the population standard deviation(s) $\\sigma for hours spent on Quiddich?",
   answer("Yes, the population standard deviations are known.", message = "Oops. We are presented with a standard deviation in hours spent but that belongs to only those players included in the sample, not the entire population."),
   answer("No, the population standard deviation is not known.", correct = TRUE),
   allow_retry = TRUE,
@@ -1703,7 +1703,7 @@ question_radio(
 
 ```{r prob11-6, echo = FALSE}
 question_radio(
-  "Do we know the population standard deviation(s) $//sigma$ for difference in temperature?",
+  "Do we know the population standard deviation(s) $\\sigma$ for difference in temperature?",
   answer("Yes, the population standard deviations are known.", message = "Oops. We are presented with a standard deviation in temperature differences but that standard deviation belongs only to the sample temperatures measured, not the population."),
   answer("No, the population standard deviations are not known.", correct = TRUE),
   allow_retry = TRUE,
@@ -1907,7 +1907,7 @@ question_radio(
 
 ```{r prob12-5, echo = FALSE}
 question_radio(
-  "Is the population standard deviation $//sigma$ for gas prices known?",
+  "Is the population standard deviation $\\sigma$ for gas prices known?",
   answer("Yes, the population standard deviation in gas prices is known."),
   answer("No, the population standard deviation in gas prices is not known.", correct = TRUE),
   allow_retry = TRUE,
@@ -2032,9 +2032,9 @@ learnrhash::encoder_ui(
   ui_before = shiny::div(
     "If you have completed this tutorial and are happy with all of your",
     "solutions, please click the button below to generate your hash and",
-    "enter it in the appropriate hash assignment in MyOpenMath.",
+    "enter it on this week's Google Form in Blackboard.",
     shiny::tags$br()
   ), 
-  ui_after = shiny::tags$a(href = "https://myopenmath.com", "MyOpenMath")
+  ui_after = shiny::tags$a(href = "https://blackboard.mville.edu", "Blackboard")
 )
 ```
