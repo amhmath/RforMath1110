@@ -303,8 +303,13 @@ Although the probabilities are not exactly the same, they are reasonably close. 
 
 ```
 ```{r wgt-norm-prob-solution}
-1-pnorm(182,fwgtmean,fwgtsd)
+1-pnorm(80,fwgtmean,fwgtsd)
 
+```
+```{r wgt-norm-prob-check}
+grade_result(
+  pass_if(~ (abs(.result - (1 - pnorm(80, 60.6, 9.62))) < 0.0005))
+)
 ```
 
 
@@ -317,6 +322,11 @@ Compute the empirical probability that a randomly chosen young adult female weig
 ```{r wgt-emp-prob-solution}
 sum(fdims$wgt > 80) / length(fdims$wgt)
 
+```
+```{r wgt-emp-prob-check}
+grade_result(
+  pass_if(~ (abs(.result - 0.04230769) < 0.0005))
+)
 ```
 
 
