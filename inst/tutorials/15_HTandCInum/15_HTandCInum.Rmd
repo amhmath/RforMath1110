@@ -539,7 +539,7 @@ grade_result(
   pass_if(~ (.result == length(nonWhiteSentences)))
 )
 ```
-<div id = "sentencing-ht-10-hint"> Again, since `whiteSentences` and `nonWhiteSentences` are vectors of sentence lengths rather than full data frames, the `nrow()` function won't work on them. Try using the `length()` function instead. `length(nonwhiteSentences)`</div>
+<div id = "sentencing-ht-10-hint"> Again, since `whiteSentences` and `nonWhiteSentences` are vectors of sentence lengths rather than full data frames, the `nrow()` function won't work on them. Try using the `length()` function instead. `length(nonWhiteSentences)`</div>
 
 ###
 
