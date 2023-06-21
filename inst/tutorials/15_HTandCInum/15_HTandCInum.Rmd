@@ -127,6 +127,10 @@ Let's start with some practice using the `pt()` and `qt()` functions. Don't forg
 ```{r pt-ex1-left, exercise = TRUE}
 
 ```
+```{r pt-ex1-left-solution}
+pt(1.49,20)
+
+```
 
 ```{r pt-ex1-left-check}
 grade_result(
@@ -139,6 +143,10 @@ grade_result(
 **Question 2:** Find $\mathbb{P}\left[t > \right.$ `r boundary2` $\left.\right]$ in a $t$-distribution with `r df2` degrees of freedom.
 
 ```{r pt-ex2-right, exercise = TRUE}
+
+```
+```{r pt-ex2-right-solution}
+pt(-1.9,12,lower.tail=F)
 
 ```
 
@@ -155,6 +163,10 @@ grade_result(
 ```{r qt-ex3, exercise = TRUE}
 
 ```
+```{r qt-ex3-solution}
+qt(.67,23)
+
+```
 
 ```{r qt-ex3-check}
 grade_result(
@@ -167,6 +179,10 @@ grade_result(
 **Question 4:** Find the critical value associated with a `r clevel4`% confidence interval using a $t$-distribution with `r df4` degrees of freedom.
 
 ```{r qt-ex4, exercise = TRUE}
+
+```
+```{r qt-ex4-solution}
+qt(.995,14)
 
 ```
 
@@ -219,7 +235,7 @@ grade_result(
 ```
 
 <div id="sentencing-ci-2-hint">
-The variable `SentenceMonths` is a column within the `SDNYdrug` data frame. Remember that you can access columns in a data frame with the `$` operator. Remember, we compute the mean with the `mean()` function.
+The variable `SentenceMonths` is a column within the `SDNYdrug` data frame. Remember that you can access columns in a data frame with the `$` operator. Remember, we compute the mean with the `mean()` function. `mean(SDNYdrug$SentenceMonths)`
 </div>
 
 ###
@@ -312,6 +328,8 @@ Use the code block below to compute the lower bound for the 95% confidence inter
 
 ```
 ```{r sentencing-ci-8-solution}
+mean(SDNYdrug$SentenceMonths)-qt(.975,nrow(SDNYdrug)-1)*sd(SDNYdrug$SentenceMonths)/sqrt(nrow(SDNYdrug))
+#or
 42.7465-1.9685*3.222
 
 ```
@@ -330,8 +348,9 @@ And use the code block below to compute the upper bound for the 95% confidence i
 
 ```
 ```{r sentencing-ci-9-solution}
+mean(SDNYdrug$SentenceMonths)+qt(.975,nrow(SDNYdrug)-1)*sd(SDNYdrug$SentenceMonths)/sqrt(nrow(SDNYdrug))
+#or
 42.7465+1.9685*3.222
-
 ```
 
 
@@ -405,7 +424,7 @@ question_radio(
 
 ```{r sentencing-ht-3, echo = FALSE}
 question_radio(
-  "Does this hypothesis test involve testing a statement about the mean ($\\mu$), a proportion ($p$), or something else?",
+  "Does this hypothesis test involve testing a statement about the mean ($\mu$), a proportion ($p$), or something else?",
   answer("One or more means", correct = TRUE),
   answer("One or more proportions"),
   answer("Something else altogether"),
@@ -506,7 +525,7 @@ grade_result(
 )
 ```
 
-<div id = "sentencing-ht-9-hint"> Since `whiteSentences` and `nonWhiteSentences` are vectors of sentence lengths rather than full data frames, the `nrow()` function won't work on them. Try using the `length()` function instead.</div>
+<div id = "sentencing-ht-9-hint"> Since `whiteSentences` and `nonWhiteSentences` are vectors of sentence lengths rather than full data frames, the `nrow()` function won't work on them. Try using the `length()` function instead. `length(whiteSentences)`</div>
 
 ###
 
@@ -520,9 +539,16 @@ grade_result(
   pass_if(~ (.result == length(nonWhiteSentences)))
 )
 ```
+<div id = "sentencing-ht-10-hint"> Again, since `whiteSentences` and `nonWhiteSentences` are vectors of sentence lengths rather than full data frames, the `nrow()` function won't work on them. Try using the `length()` function instead. `length(nonwhiteSentences)`</div>
+
+###
 
 Compute the average sentence length in months for the white offenders.
 ```{r sentencing-ht-11, exercise = TRUE}
+
+```
+```{r sentencing-ht-11-solution}
+mean(whiteSentences)
 
 ```
 
@@ -534,6 +560,10 @@ grade_result(
 
 Compute the average sentence length in months for the non-white offenders.
 ```{r sentencing-ht-12, exercise = TRUE}
+
+```
+```{r sentencing-ht-12-solution}
+mean(nonWhiteSentences)
 
 ```
 
@@ -549,6 +579,10 @@ Compute the standard deviation in sentence lengths for the white offenders.
 ```{r sentencing-ht-13, exercise = TRUE}
 
 ```
+```{r sentencing-ht-13-solution}
+sd(whiteSentences)
+
+```
 
 ```{r sentencing-ht-13-check}
 grade_result(
@@ -558,6 +592,10 @@ grade_result(
 
 Compute the standard deviation in sentence lengths for the non-white offenders.
 ```{r sentencing-ht-14, exercise = TRUE}
+
+```
+```{r sentencing-ht-14-solution}
+sd(nonWhiteSentences)
 
 ```
 
@@ -602,6 +640,8 @@ Compute the point estimate
 
 ```
 ```{r sentencing-ht-16-solution}
+mean(whiteSentences) - mean(nonWhiteSentences)
+#or
 29.795-44.719
 
 ```
@@ -620,10 +660,11 @@ Compute the standard error
 
 ```
 ```{r sentencing-ht-17-solution}
+sqrt((sd(whiteSentences)^2/length(whiteSentences)) + (sd(nonWhiteSentences)^2/length(nonWhiteSentences)))
+#or
 sqrt(36.53^2/37+55.88^2/243)
 
 ```
-
 
 
 ```{r sentencing-ht-17-check}
@@ -639,6 +680,8 @@ Compute the test statistic
 
 ```
 ```{r sentencing-ht-18-solution}
+((mean(whiteSentences) - mean(nonWhiteSentences)) - 0)/((sqrt((sd(whiteSentences)^2/length(whiteSentences)) + (sd(nonWhiteSentences)^2/length(nonWhiteSentences)))))
+#or
 -14.942/6.994
 
 ```
