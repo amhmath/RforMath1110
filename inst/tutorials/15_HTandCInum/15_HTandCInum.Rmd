@@ -424,7 +424,7 @@ question_radio(
 
 ```{r sentencing-ht-3, echo = FALSE}
 question_radio(
-  "Does this hypothesis test involve testing a statement about the mean ($\mu$), a proportion ($p$), or something else?",
+  "Does this hypothesis test involve testing a statement about the mean $\\mu$, a proportion $p$, or something else?",
   answer("One or more means", correct = TRUE),
   answer("One or more proportions"),
   answer("Something else altogether"),
