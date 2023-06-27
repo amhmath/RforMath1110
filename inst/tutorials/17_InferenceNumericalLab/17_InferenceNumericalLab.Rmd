@@ -292,6 +292,17 @@ learnrhash::encoder_ui(
 
 <br/>
 
+## Decode
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::decoder_ui()
+```
+
+
 <div id="license">
 This lab is a product of OpenIntro that is released under a [Creative Commons Attribution-ShareAlike 3.0 Unported](http://creativecommons.org/licenses/by-sa/3.0). This lab was adapted for OpenIntro by Mine &Ccedil;etinkaya-Rundel from a lab written by the faculty and TAs of UCLA Statistics.
 </div>
