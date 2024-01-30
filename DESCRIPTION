@@ -1,9 +1,9 @@
-Package: AppliedStatsInteractive
+Package: RforMath1110
 Type: Package
 Title: Interactive Tutorials for a First Course in Applied Statistics
 Version: 0.1.2
-Author: Adam Gilbert
-Maintainer: The package maintainer: <agilbertmath@gmail.com>
+Author: Adam Gilbert and A. Mia Heissan
+Maintainer: The package maintainer: <a.heissan@mville.edu>
 Description: This package deploys interactive tutorials for a first course in applied statistics. It follows the OpenIntro Statistics textbook and includes several resources adapted from that project.
 Imports:
     gradethis,
