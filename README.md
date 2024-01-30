@@ -1,4 +1,4 @@
-# AppliedStatsInteractive
+# RforMath1110
  
 This is an R package which deploys interactive notebooks to accompany an introductory course in applied statistics. The notebooks follow the freely available [OpenIntro Statistics (4Ed)](http://www.openintro.org/os) textbook and supplementary resources. 
 
