@@ -718,7 +718,7 @@ Compute the p-value
 
 ```
 ```{r sentencing-ht-19-solution}
-2*pt(-2.13,26)
+2*pt(-2.13,36)
 
 ```
 

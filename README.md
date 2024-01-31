@@ -1,8 +1,8 @@
-# AppliedStatsInteractive
+# RforMath1110
  
 This is an R package which deploys interactive notebooks to accompany an introductory course in applied statistics. The notebooks follow the freely available [OpenIntro Statistics (4Ed)](http://www.openintro.org/os) textbook and supplementary resources. 
 
-You can install this package by running the following command in R (which requires the `devtools` package as a prereqisite): `remotes::install_github("amhmath/AppliedStatsInteractive")`
+You can install this package by running the following command in R (which requires the `devtools` package as a prerequisite): `remotes::install_github("amhmath/RforMath1110")`
 
 ## Grading Functionality
 
