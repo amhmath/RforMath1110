@@ -1,0 +1,39 @@
+---
+title: "Topic X: Sample Workbook"
+tutorial:
+  id: "IntroData.Topic1.AppliedStats"
+  version: 1.0
+output: 
+  learnr::tutorial:
+    progressive: TRUE
+    
+runtime: shiny_prerendered
+---
+
+```{r global-options, include=FALSE}
+#knitr::opts_chunk$set(eval = FALSE)
+library(dplyr)
+library(ggplot2)
+library(learnr)
+library(gradethis)
+library(openintro)
+
+set.seed(42)
+
+houses <- read.csv("https://raw.githubusercontent.com/NikhilKumarMutyala/Linear-Regression-from-scartch-on-KC-House-Dataset/master/kc_house_data.csv")
+houses$exterior <- sample(c("brick", "vinyl siding", "shingles", "NA"), size = nrow(houses), prob = c(0.15, 0.7, 0.12, 0.03), replace = TRUE)
+houses$month <- sample(1:12, size = nrow(houses), replace = TRUE)
+housesSubset <- houses[ , c(1, 23, 3, 6, 7, 9, 22)]
+
+#knitr::opts_chunk$set(exercise.checker = gradethis::grade_learnr)
+```
+
+## Decode
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::decoder_ui()
+```
