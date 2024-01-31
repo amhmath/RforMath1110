@@ -47,13 +47,13 @@ In addition to the resources mentioned here, there are several other great resou
 
 ### 
 
-If you have any questions/comments or wish to report any errors in these workbooks, please email [A.M. Heissan (*a.heissan@mville.edu*)](mailto:a.heissan@mville.edu). These workbooks are publicly available on [GitHub](https://github.com/amhmath/AppliedStatsInteractive) and are available to run locally via an R package as follows:
+If you have any questions/comments or wish to report any errors in these workbooks, please email [A.M. Heissan (*a.heissan@mville.edu*)](mailto:a.heissan@mville.edu). These workbooks are publicly available on [GitHub](https://github.com/amhmath/RforMath1110) and are available to run locally via an R package as follows:
 
 ```{r install, echo = TRUE, eval = FALSE}
 #You'll need the devtools library to install a package from GitHub
 install.packages("devtools")
 #Now, install the package containing the interactive workbooks
-remotes::install_github("amhmath/AppliedStatsInteractive")
+remotes::install_github("amhmath/RforMath1110")
 ```
 
 ###
@@ -70,7 +70,7 @@ If you are considering whether to use these notebooks as part of a course or sel
 
 + Although these notebooks are currently in a usable format, they are still being improved. Be sure to check GitHub for the latest changes and release notes. 
 
-  + Depending on the date which you or students install the `AppliedStatsInteractive` package, the individual installing at a later date may notice additional features. For example, I am working on creating/curating, and embedding more video instruction.
+  + Depending on the date which you or students install the `RforMath1110` package, the individual installing at a later date may notice additional features. For example, I am working on creating/curating, and embedding more video instruction.
 
 + The `learnrhash` package provides some ability for student progress tracking through these workbooks. At the end of each workbook there is a subsection called *Submit*, which includes a button for students to generate a `hash` code which represents their completed notebook. They can submit these hash codes using a web-based form such as Google Forms. Once you have the csv with the hashes, you can read it into R and use `learnrhash` functionality to reconstruct the student work. See the `learnrhash` documentation [here](https://github.com/rundel/learnrhash).
 
@@ -83,7 +83,7 @@ If you are looking for a more traditional online homework system to supplement t
   + You can install R by going to [CRAN](https://cran.r-project.org/), choosing the appropriate OS, and following the installer instructions.
   + While not necessary for running these notebooks, you will want to obtain RStudio which is a convenient IDE for interfacing with the R language. You can get it from the [RStudio website](https://rstudio.com/products/rstudio/download/). Again, choose the appropriate OS and follow the installer instructions.
   + Open RStudio, and in the console, run `install.packages("devtools")`
-  + After `devtools` is unpacked, run `remotes::install_github("amhmath/AppliedStatsInteractive")`
+  + After `devtools` is unpacked, run `remotes::install_github("amhmath/RforMath1110")`
   + At this point, the `Tutorials` tab in the top-right pane will begin to index the workbooks in the `AppliedStatsInteractive` package. In a few minutes the indexing will be complete and you'll be able to use the `Start Tutorial` button next to each notebook name to launch the notebook.  
 
 ###
