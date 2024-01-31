@@ -23,11 +23,11 @@ tutorial_options(exercise.timelimit = 60, exercise.checker = gradethis::grade_le
 
 ## Inference Practice
 
-###
+
 
 In this workbook, you'll have an opportunity to practice a set of problems. I'm still providing you with a set of guided questions for each problem. Think about the guiding questions and steps necessary to complete each task so that you will be prepared to approach similar problems on your own, without this scaffolding. On the associated homework problems you'll need to come up with these steps on your own. This workbook should prepare you for that.
 
-###
+
 
 For convenience, here is the [*standard errror decision tree*](www/StdErrorDecisionTree.pdf){target="_blank"}. For any problems involving hypothesis tests, assume the $\alpha = 0.05$ level of significance unless otherwise stated.
 
@@ -205,7 +205,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob2-8, echo = FALSE}
 quiz(
@@ -396,7 +396,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob3-6, echo = FALSE}
 quiz(
@@ -554,7 +554,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob4-5, echo = FALSE}
 quiz(
@@ -742,7 +742,7 @@ grade_result(
 
 In the last problem, did you remember to round your answer up? Rounding the required sample size down results in either a loss of confidence or an increased margin of error, violating the requirements for the estimate.
 
-###
+
 
 ## Problem 6
 
@@ -797,7 +797,7 @@ question_radio(
   random_answer_order = TRUE
 )
 ```
-###
+
 
 ```{r prob6-5, echo = FALSE}
 quiz(
@@ -977,7 +977,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob7-6, echo = FALSE}
 quiz(
@@ -1173,7 +1173,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob8-7, echo = FALSE}
 quiz(
@@ -1369,7 +1369,7 @@ grade_result(
 )
 ```
 
-###
+
 
 ## Problem 10
 
@@ -1556,7 +1556,7 @@ quiz(
 )
 ```
 
-###
+
 
 ## Problem 11
 
@@ -1647,7 +1647,7 @@ question_radio(
 )
 ```
 
-###
+
 
 ```{r prob11-8, echo = FALSE}
 quiz(
@@ -1764,7 +1764,7 @@ quiz(
 )
 ```
 
-###
+
 
 ## Problem 12
 
@@ -1830,7 +1830,7 @@ question_radio(
   random_answer_order = TRUE
 )
 ```
-###
+
 
 ```{r prob12-6, echo = FALSE}
 quiz(
