@@ -236,7 +236,7 @@ quiz(
 
 ###
 
-Now we'll begin building the test statistic. Use the code block below to input or compute the point estimate for our population parameter. Recall, we sampled 9 women and 14 men and found:
+Recall, we sampled 9 women and 14 men and found:
 
 
 <center>
@@ -245,6 +245,7 @@ $\begin{array}{|c|c|c|} \hline & \text{Men} & \text{Women} \\ \hline
 s & 4.5 & 6.2 \\ \hline \end{array}$
 </center>
 
+Now we'll begin building the test statistic. Use the code block below to input or compute the point estimate for our population parameter. 
 
 ```{r prob2-9, exercise = TRUE}
 
